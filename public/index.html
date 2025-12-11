@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Racing Syllabus Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="userOverlay" class="overlay">
+      <div class="overlay-box">
+        <h2>Enter your name</h2>
+        <input type="text" id="usernameInput" placeholder="Your name..." />
+        <button id="saveUsernameBtn">Start</button>
+      </div>
+    </div>
+
+    <div class="app">
+      <header class="topbar">
+        <h1>Racing Syllabus Tracker</h1>
+        
+      </header>
+
+      <main class="main">
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <section class="track-area">
+          <div class="track" id="track">
+            <!-- lanes will be injected here -->
+          </div>
+          <div class="leaderboard" id="leaderboard"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        6 players • 6 subjects • 5 units each = 30 checkpoints
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

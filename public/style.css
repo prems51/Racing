@@ -1,0 +1,192 @@
+:root {
+  --bg: #0f172a;
+  --card: #0b1220;
+  --accent: #60a5fa;
+  --muted: #94a3b8;
+  --lane-h: 72px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Arial;
+  background: linear-gradient(180deg, #071028 0%, #0b1220 100%);
+  color: #e6eef8;
+}
+.app {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 14px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.topbar h1 {
+  font-size: 18px;
+  margin: 0;
+}
+.main {
+  display: flex;
+  gap: 12px;
+}
+.sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 68vh;
+}
+.track-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.track {
+  background: linear-gradient(90deg, #0b1a2a 0%, #06202f 100%);
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  min-height: 460px;
+}
+.lane {
+  height: var(--lane-h);
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 8px;
+  border-radius: 8px;
+  position: relative;
+}
+.lane .car {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 400ms linear;
+}
+.car .label {
+  font-size: 12px;
+  margin-left: 44px;
+}
+.checkpoint {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.leaderboard {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--muted);
+}
+.subject {
+  margin-bottom: 8px;
+}
+.subject h3 {
+  margin: 6px 0;
+  font-size: 14px;
+}
+.unit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.unit input {
+  width: 16px;
+  height: 16px;
+}
+.reset-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.footer {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.player-badge {
+  display: inline-block;
+  min-width: 32px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+.car-icon {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 2; /* move sidebar BELOW track */
+    width: 100%;
+    max-height: none;
+    display: block;
+    margin-top: 12px;
+  }
+
+  .track-area {
+    order: 1; /* track stays on top */
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.overlay-box {
+  background: #0b1220;
+  padding: 24px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overlay-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #0f172a;
+  color: white;
+}
+
+.overlay-box button {
+  margin-top: 12px;
+  padding: 8px 14px;
+  width: 100%;
+  border-radius: 6px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
