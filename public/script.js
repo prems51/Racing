@@ -51,7 +51,6 @@ async function init() {
     renderTrack();
     renderSidebar();
     renderLeaderboard();
-    attachEvents();
     startPolling();
 }
 
@@ -194,17 +193,7 @@ function renderLeaderboard() {
     });
 }
 
-function attachEvents() {
-    document.getElementById('resetBtn').addEventListener('click', async () => {
-        const player = state.selectedPlayer;
-        if (!confirm(`Reset progress for ${player}? This cannot be undone via UI.`)) return;
-        state.players[player].units = Array(TOTAL_UNITS).fill(false);
-        updateCarsPosition(); renderSidebar(); renderLeaderboard();
-        try {
-            await fetch(`${API_BASE}/update-player`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ player, units: state.players[player].units }) });
-        } catch (err) { console.error('reset failed', err) }
-    });
-}
+
 
 // Poll server to get others' updates
 let pollTimer = null;
