@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 5000;
 
 // PERSISTENT STORAGE LOCATION ON RENDER
 const DATA_FOLDER = process.env.RENDER ? "/data" : path.join(__dirname, "data");
+await fs.ensureDir(DATA_FOLDER);
 const DATA_FILE = path.join(DATA_FOLDER, "progress.json");
+
 
 // Middleware
 app.use(cors());
